@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block content %}
+<h2 class="section-title">Daftar Tempat Wisata</h2>
+<div class="row">
+    {% for w in wisata %}
+            <!-- <li>{{ w.nama }}</li> -->
+    <div class="col-12 col-md-4 col-lg-4">
+        <article class="article article-style-c">
+            <div class="article-header">
+                <div class="article-image" data-background="{% static 'img/news/img13.jpg' %}"></div>
+            </div>
+            <div class="article-details">
+                <!-- <div class="article-category">
+                    <a href="#">News</a> 
+                    <div class="bullet"></div> 
+                    <a href="#">5 Days</a>
+                </div> -->
+                <div class="article-title">
+                    <h2>
+                        <a href="#">{{ w.nama }}</a>
+                    </h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim dolores voluptatibus voluptates deserunt cumque optio corrupti fugit ea quisquam? Quidem numquam vel, laboriosam quam obcaecati eius recusandae fugiat modi ex? </p>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- {{ wisata }} -->
+
+<!-- <div class="d-flex justify-content-center">...</div> -->
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if wisata.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page={{wisata.previous_page_number}}">Previous</a></li>
+            {% endif %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Halaman {{ wisata.number }} dari {{ wisata.paginator.num_pages }}</a>
+            </li>
+            {% if wisata.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{wisata.next_page_number}}">Next</a></li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{wisata.paginator.num_pages}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+<!-- </div> -->
+
+{% endblock %}
+
