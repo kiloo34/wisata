@@ -57,6 +57,11 @@ def login(request):
     }
     return render(request, 'registration/login.html', konteks)
 
+def guest(request):
+
+    
+
+    return redirect(request, 'user/dashboard.html');
 
 def logout(request):
     auth_logout(request)
