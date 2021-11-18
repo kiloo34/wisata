@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='respon',
             name='pertanyaan_id',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='prima_wisata.pertanyaan'),
+            field=models.ForeignKey(
+                null=True, on_delete=django.db.models.deletion.CASCADE, to='prima_wisata.pertanyaan'),
         ),
     ]

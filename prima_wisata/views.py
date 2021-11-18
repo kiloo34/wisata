@@ -43,6 +43,7 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
+            # if user.
             return redirect('dashboard')
         else:
             messages.info(request, 'Username atau password salah',
